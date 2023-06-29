@@ -126,7 +126,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="C:\Users\carlos_a_laurindo\Desktop\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\carlos_a_laurindo\Desktop\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ProjetoTrilhaWeb" path="/ProjetoTrilhaWeb" reloadable="true" source="org.eclipse.jst.jee.server:ProjetoTrilhaWeb"/><Context docBase="C:\Users\carlos_a_laurindo\Desktop\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ExemploServlet" path="/ExemploServlet" reloadable="true" source="org.eclipse.jst.jee.server:ExemploServlet"/></Host>
+      <Context docBase="C:\Users\carlos_a_laurindo\Desktop\siteGeladeiras\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\carlos_a_laurindo\Desktop\siteGeladeiras\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ProjetoTrilhaWeb" path="/ProjetoTrilhaWeb" reloadable="true" source="org.eclipse.jst.jee.server:ProjetoTrilhaWeb"/><Context docBase="C:\Users\carlos_a_laurindo\Desktop\siteGeladeiras\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ExemploServlet" path="/ExemploServlet" reloadable="true" source="org.eclipse.jst.jee.server:ExemploServlet"/></Host>
     </Engine>
   </Service>
 </Server>

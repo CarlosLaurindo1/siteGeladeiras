@@ -81,14 +81,14 @@ nav .opcao:hoover{
 	display: block;
 }
 
-.section{
+section{
 	clear:both;
 	min-height: 460px;
 	width: 100%;
 	margin-top: 0px;
 }
 
-.footer{
+footer{
 	background-color: #005f89;
 	color: #fff;
 	text-align: center;
