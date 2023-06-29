@@ -1,0 +1,17 @@
+package br.com.coldigogeladeiras.rest;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.PATH;
+
+import jakarta.ws.rs.Path;
+
+
+@Path("marca")
+public class MarcaRest {
+	@GET
+	@PATH("/buscar")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Responde buscar() {
+		
+	}
+}

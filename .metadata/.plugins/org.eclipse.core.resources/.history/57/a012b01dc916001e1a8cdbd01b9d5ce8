@@ -1,0 +1,12 @@
+<h2>Registro de Produtos</h2>
+<form name="frmAddProduto" id="addProduto" class="frmInserir">
+	<fieldset>
+		<legend>Novo Produto</legend>
+		<table>
+			<tr>
+				<th></th><select name="categoria">
+				</select>
+			</tr>
+		</table>
+	</fieldset>
+</form>

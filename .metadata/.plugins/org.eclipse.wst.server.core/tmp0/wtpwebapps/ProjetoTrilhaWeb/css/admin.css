@@ -1,13 +1,12 @@
 @charset "UTF-8";
 
 /*Configuração geral do corpo da página */
-
-body{
+body {
 	margin: 0 auto;
 	font-family: "century Gothic", sans-serif;
 }
 
-header{
+header {
 	height: 120px;
 	background-color: #008eb6;
 	position: -webkit-sticky;
@@ -15,28 +14,28 @@ header{
 	top: 0px;
 }
 
-header img{
+header img {
 	float: left;
 	height: 100px;
 	width: 100px;
 	margin: 10px;
 }
 
-header h1{
+header h1 {
 	float: left;
 	margin: 30px 0 15px 30px;
 	font-size: 40px;
 	color: #ffffff;
 }
 
-nav{
+nav {
 	clear: both;
 	width: 70%;
 	display: inline-block;
 	margin: 0px auto;
 }
 
-nav a{
+nav a {
 	color: white;
 	font-weight: bold;
 	letter-spacing: 1px;
@@ -44,7 +43,7 @@ nav a{
 	text-align: center;
 }
 
-nav .opcao{
+nav .opcao {
 	float: left;
 	width: 19%;
 	background-color: #005f89;
@@ -52,16 +51,16 @@ nav .opcao{
 	font-size: 16px;
 }
 
-nav .opcao:hoover{
+nav .opcao:hover {
 	background-color: #83afd3;
 }
 
-.dropdown{
+.dropdown {
 	position: relative;
 	display: inline-block;
 }
 
-.dropdown-content{
+.dropdown-content {
 	display: none;
 	position: absolute;
 	background-color: #005f89;
@@ -69,28 +68,77 @@ nav .opcao:hoover{
 	width: 100%;
 }
 
-.dropdown-content a{
+.dropdown-content a {
 	display: block;
 }
 
-.dropdown-content a:hoover{
+.dropdown-content a:hover {
 	background-color: #83afd3;
 }
 
-.dropdown:hoover .dropdown-content{
+.dropdown:hover .dropdown-content {
 	display: block;
 }
 
-section{
-	clear:both;
+section {
+	clear: both;
 	min-height: 460px;
 	width: 100%;
 	margin-top: 0px;
 }
 
-footer{
+footer {
 	background-color: #005f89;
 	color: #fff;
 	text-align: center;
 	padding: 10px;
 }
+
+section h2, section h3{
+	text-align: center;
+}
+
+.frmInserir{
+	margin: 0px auto;
+	margin-button: 10px;
+}
+
+.frmInserir{
+	width: 500px;
+}
+
+.frmInserir label{
+	width: 200px;
+}
+
+.frmInserir input, .frmInserir textarea, .frmInserir select{
+	width: 300px;
+	padding: 2px 0;
+}
+
+.frmInserir textarea{
+	height: 100px;
+	resize: none;
+}
+
+.frmInserir button{
+	width: 100px;
+	margin: 0 1%;
+	background-color: #b1ccf5;
+	font-weight: bold;
+	font-size: 16px;
+	float: right;
+}
+
+.frmInserir .aviso{
+	background-color: #ff0000;
+	color: #fff;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
