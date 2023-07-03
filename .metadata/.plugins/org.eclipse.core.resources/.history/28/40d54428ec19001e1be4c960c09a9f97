@@ -1,0 +1,5 @@
+package be.com.coldigogeladeiras.bd;
+
+public class Conexao {
+
+}

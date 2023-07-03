@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;ProjetoTrilhaWeb&apos;&#x0D;&#x0A;- Original project: &apos;ProjetoTrilhaWeb&apos;&#x0D;&#x0A;- Original element: &apos;ProjetoTrilhaWeb/src/main/java/be.com.coldigogeladeiras.bd&apos;" description="Delete element" element1="/src\/main\/java&lt;be.com.coldigogeladeiras.bd" element2="/src\/main\/java&lt;be.com.coldigogeladeiras" element3="/src\/main\/java&lt;be.com" element4="/src\/main\/java&lt;be" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1688422236174" subPackages="false" version="1.0"/>
+</session>

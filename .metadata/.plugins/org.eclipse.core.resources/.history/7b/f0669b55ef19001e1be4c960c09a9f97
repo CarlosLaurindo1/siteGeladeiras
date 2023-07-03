@@ -1,0 +1,14 @@
+package br.com.coldigogeladeiras.jdbc;
+
+
+import java.sql.Connection;
+
+import br.com.coldigogeladeiras.jdbcinterface.MarcaDAO;
+
+public class JDBCMarcaDAO implements MarcaDAO{
+	private Connection conexao;
+	
+	public JDBCMarcaDAO(Connection conexao) {
+		this.conexao;
+	}
+}
