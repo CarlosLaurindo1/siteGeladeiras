@@ -1,7 +1,0 @@
-package br.com.coldigogeladeiras.modelo;
-
-import java.io.Serializable;
-
-public class Marca implements Serializable{
-
-}
