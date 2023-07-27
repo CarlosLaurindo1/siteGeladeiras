@@ -17,7 +17,7 @@ public class UtilRest {
 	}
 
 	public Response buildErrorResponse(String str) {
-		ResponseBuilder rb = Response.status(Response.StatusType.INTERNAL_SERVER_ERROR);
+		ResponseBuilder rb = Response.status(Response.Status.INTERNAL_SERVER_ERROR);
 
 		rb = rb.entity(str);
 
