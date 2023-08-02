@@ -19,7 +19,7 @@ public class JDBCMarcaDAO implements MarcaDAO {
 	public List<Marca> buscar() {
 		// TODO Auto-generated method stub
 
-		String comando = "SELECT* FROM marcas";
+		String comando = "SELECT * FROM marcas";
 		List<Marca> listMarcas = new ArrayList<Marca>();
 
 		Marca marca = null;

@@ -29,3 +29,9 @@
 127.0.0.1 - - [26/Jul/2023:21:02:20 -0300] "GET / HTTP/1.1" 404 1036
 0:0:0:0:0:0:0:1 - - [26/Jul/2023:21:02:24 -0300] "GET /ProjetoTrilhaWeb/pages/admin/product/ HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [26/Jul/2023:21:02:24 -0300] "GET /js/product.js HTTP/1.1" 404 1049
+127.0.0.1 - - [26/Jul/2023:21:30:51 -0300] "GET / HTTP/1.1" 404 1036
+0:0:0:0:0:0:0:1 - - [26/Jul/2023:21:30:59 -0300] "GET /js/product.js HTTP/1.1" 404 1049
+0:0:0:0:0:0:0:1 - - [26/Jul/2023:21:31:06 -0300] "GET /ProjetoTrilhaWeb/pages/admin/index.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Jul/2023:21:31:06 -0300] "GET /ProjetoTrilhaWeb/js/jquery-ui.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Jul/2023:21:31:06 -0300] "GET /ProjetoTrilhaWeb/css/jquery-ui.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Jul/2023:21:31:08 -0300] "GET /js/product.js HTTP/1.1" 404 1049
