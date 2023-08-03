@@ -1,15 +1,23 @@
 package br.com.coldigogeladeiras.bd;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+
+//	Aqui foi realizado a conexão com o banco de dados
+//	Vai receber dados com url usuario e senha e vai tentar uma conexão
 
 public class Conexao {
+
 	private Connection conexao;
 
 	public Connection abrirConexao() {
+
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-			conexao = java.sql.DriverManager.getConnection("jdbc:mysql://localhost/bdcoldigo?"
-					+ "user=root&password=root&useTimezone=true&serverTimezone=UTC");
+			String url = "jdbc:mysql://localhost/bdcoldigo?";
+			String usuario = "root";
+			String senha = "root";
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conexao = DriverManager.getConnection(url, usuario, senha);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -23,4 +31,5 @@ public class Conexao {
 			e.printStackTrace();
 		}
 	}
+
 }
