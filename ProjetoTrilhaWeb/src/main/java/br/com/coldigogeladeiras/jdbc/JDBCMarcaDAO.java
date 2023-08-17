@@ -37,7 +37,7 @@ public class JDBCMarcaDAO implements MarcaDAO {
 
 				marca.setId(id);
 				marca.setNome(nome);
-
+				System.out.println(marca);
 				listMarcas.add(marca);
 			}
 		} catch (Exception ex) {

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Site da Dolgigo geraldeiras">
+        <meta name="keyword" content="Geladeiras, Fost-Free, refrigeração">
+        <meta name="author" content="Escola Sitêmica">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coldigo Geladeiras</title>
+        <link rel="stylesheet" type="text/css" href="../../css/site.css">
+        <script src="../../js/site.js"></script>
+    </head>
+    <body>
+        <header>
+            <img src="../../imgs/floco.jpg" alt="Logo da Coldigo Geladeiras">
+            <h1>Coldigo Geladeiras</h1>
+        </header>
+        <nav>
+            <a href="../../index.html"><div class="opcao">Início</div></a>
+            <a href="produtos.html"><div class="opcao">Produtos</div></a>
+            <a href="faleconosco.html"><div class="opcao">Fale Conosco</div></a>
+        </nav>
+        <section>
+            <h2>Fale Conosco!</h2>
+            <p>Ficou com alguma dúvida? Preencha o Formulário e entraremos em contato!</p>
+            <form name="frmfaleconosco" method="post" action="#" onsubmit="return validaFaleConosco()">
+                <fieldset class="faleconosco">
+                    <legend>Dados pessoais:</legend>
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="txtnome" id="nome">
+                    <label for="fone">Telefone: </label>
+                    <input type="text" name="txtfone" id="fone">
+                    <label for="email">E-mail: </label>
+                    <input type="email" name="txtemail" id="email">
+                </fieldset>
+                <fieldset class="faleconosco">
+                    <legend>Motivo do contato:</legend>
+                    <label for="motivo">Motivo: </label>
+                    <select name="selmotivo" id="motivo" onchange="verificaMotivo(this.value)">
+                        <option value="">Escolha</option>
+                        <option value="RE">Reclamação</option>
+                        <option value="SU">Sugestão</option>
+                        <option value="PR">Informação sobre o produto</option>
+                    </select>
+                    <div id="opcaoProduto">
+                        <label for="produto">Produto: </label>
+                        <select name="selproduto">
+                            <option value="">Escolha</option>
+                            <option value="FR">Freezer</option>
+                            <option value="GE">Geladeira</option>
+                        </select>
+                    </div>
+                    <label for="comentario">Comentário: </label>
+                    <textarea name="txtcomentario" id="comentario"></textarea>
+                    <button type="reset" onclick="verificaMotivo(null)">Limpar</button><button type="submit">Enviar</button>
+                </fieldset>
+            </form>
+        </section>
+        <footer> Copyright &copy; Escola Sistêmica 2023</footer>    
+    </body>
+</html>

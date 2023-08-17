@@ -4,15 +4,16 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import br.com.coldigogeladeiras.bd.Conexao;
+import br.com.coldigogeladeiras.jdbc.JDBCMarcaDAO;
+import br.com.coldigogeladeiras.modelo.Marca;
+
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-
-import br.com.coldigogeladeiras.bd.Conexao;
-import br.com.coldigogeladeiras.jdbc.JDBCMarcaDAO;
-import br.com.coldigogeladeiras.modelo.Marca;
 
 @Path("marca")
 public class MarcaRest extends UtilRest {
