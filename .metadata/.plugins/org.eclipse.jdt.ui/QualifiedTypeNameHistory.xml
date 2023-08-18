@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="jakarta.ws.rs.Path"/>
-    <fullyQualifiedTypeName name="jakarta.ws.rs.Produces"/>
-    <fullyQualifiedTypeName name="jakarta.ws.rs.core.Response"/>
     <fullyQualifiedTypeName name="jakarta.ws.rs.core.Response.ResponseBuilder"/>
     <fullyQualifiedTypeName name="com.google.gson.Gson"/>
     <fullyQualifiedTypeName name="jakarta.ws.rs.core.Response.StatusType"/>
+    <fullyQualifiedTypeName name="jakarta.ws.rs.Path"/>
+    <fullyQualifiedTypeName name="jakarta.ws.rs.Produces"/>
+    <fullyQualifiedTypeName name="jakarta.ws.rs.core.MediaType"/>
+    <fullyQualifiedTypeName name="jakarta.ws.rs.GET"/>
+    <fullyQualifiedTypeName name="jakarta.ws.rs.core.Response"/>
 </qualifiedTypeNameHistroy>
