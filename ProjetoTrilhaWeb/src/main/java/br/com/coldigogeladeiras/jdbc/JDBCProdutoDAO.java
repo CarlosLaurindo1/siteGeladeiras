@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.com.coldigogeladeiras.jdbcinterface.ProdutoDAO;
+import br.com.coldigogeladeiras.modelo.Produto;
 
 public class JDBCProdutoDAO implements ProdutoDAO {
 	private Connection conexao;
@@ -14,25 +15,25 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 	}
 
 	public boolean inserir(Produto produto) {
-		String comando = "INSET INTO produtos" + "(id, categoria, modelo, capacidade, valor, marcas_id)"
-				+ "Values(?,?,?,?,?,?,)";
+		String comando = "INSERT INTO produtos" + "(id, categoria, modelo, capacidade, valor, marcas_id)"
+				+ "Values(?,?,?,?,?,?)";
 		PreparedStatement p;
 
 		try {
 			p = this.conexao.prepareStatement(comando);
+
 			p.setInt(1, produto.getId());
 			p.setString(2, produto.getCategoria());
 			p.setString(3, produto.getModelo());
 			p.setInt(4, produto.getCapacidade());
 			p.setFloat(5, produto.getValor());
 			p.setInt(6, produto.getMarcaId());
-
 			p.execute();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
 		return true;
 	}
+
 }

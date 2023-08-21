@@ -6,7 +6,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import com.google.gson.Gson;
 
@@ -25,8 +24,9 @@ public class ProdutoRest extends UtilRest {
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 
-			JDBCProdutoDAO jdbcProduto = JDBCProdutoDAO(conexao);
+			JDBCProdutoDAO jdbcProduto = new JDBCProdutoDAO(conexao);
 			boolean retorno = jdbcProduto.inserir(produto);
+
 			String msg = "";
 
 			if (retorno) {
@@ -43,5 +43,4 @@ public class ProdutoRest extends UtilRest {
 			return this.buildErrorResponse(e.getMessage());
 		}
 	}
-
 }

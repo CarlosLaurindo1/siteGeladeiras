@@ -1,0 +1,12 @@
+package br.com.coldigogeladeiras.jdbc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import br.com.coldigogeladeiras.jdbcinterface.ProdutoDAO;
+import br.com.coldigogeladeiras.modelo.Produto;
+
+public class JDBCProdutoDAO implements ProdutoDAO {
+
+}
