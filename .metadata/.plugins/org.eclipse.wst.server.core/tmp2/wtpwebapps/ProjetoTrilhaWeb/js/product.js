@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 	//validar se todos os campos do cadastro foram preenchidos
 	COLDIGO.produto.cadastrar = function() {
-		
+
 		var produto = new Object();
 		produto.categoria = document.frmAddProduto.categoria.value;
 		produto.marcaId = document.frmAddProduto.marcaId.value;
@@ -77,4 +77,19 @@ $(document).ready(function() {
 			});
 		}
 	}; // Correção: troquei ")" por ";"
+	COLDIGO.produto.buscar = function() {
+		var valorBusca = $("#campoBuscaProduto").val();
+
+		$.ajax({
+			type: "GET",
+			url: COLDIGO.PATH + "produto/buscar",
+			data: "valorBusca" + valorBusca,
+			success: function(dados) {
+
+			},
+			error: function(info) {
+				COLDIGO.exibirAviso("Erro ao consultar os contatos: " + info.status + " - " + infor.statusText);
+			}
+		});
+	};
 });

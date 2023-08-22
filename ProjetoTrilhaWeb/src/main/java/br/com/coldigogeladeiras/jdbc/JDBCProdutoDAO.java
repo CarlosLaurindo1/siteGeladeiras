@@ -3,6 +3,9 @@ package br.com.coldigogeladeiras.jdbc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
+
+import com.google.gson.JsonObject;
 
 import br.com.coldigogeladeiras.jdbcinterface.ProdutoDAO;
 import br.com.coldigogeladeiras.modelo.Produto;
@@ -34,6 +37,11 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 			return false;
 		}
 		return true;
+	}
+
+	public List<JsonObject> buscarPorNome(String nome) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
