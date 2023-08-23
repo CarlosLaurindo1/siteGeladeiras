@@ -85,11 +85,13 @@ $(document).ready(function() {
 			url: COLDIGO.PATH + "produto/buscar",
 			data: "valorBusca" + valorBusca,
 			success: function(dados) {
-
+				dados = JSON.parse(dados);
+				console.log(dados);
 			},
 			error: function(info) {
-				COLDIGO.exibirAviso("Erro ao consultar os contatos: " + info.status + " - " + infor.statusText);
+				COLDIGO.exibirAviso("Erro ao consultar os contatos: " + info.status + " - " + info.statusText);
 			}
 		});
 	};
+	//COLDIGO.produto.buscar();
 });

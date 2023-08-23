@@ -1,7 +1,0 @@
-package br.com.coldigogeladeiras.jdbc;
-
-import br.com.coldigogeladeiras.modelo.Produto;
-
-public class JDBCProdutoDAO {
-
-}

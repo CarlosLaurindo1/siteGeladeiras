@@ -54,13 +54,21 @@ public class ProdutoRest extends UtilRest {
 	@GET
 	@Path("/buscar")
 	@Consumes("application/*")
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response buscarPorNome(@QueryParam("valorBusca") String nome) {
+		
 		try {
 			List<JsonObject> listaProdutos = new ArrayList<JsonObject>();
 
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCProdutoDAO jdbcProduto = new JDBCProdutoDAO(conexao);
+			listaProdutos = jdbcProduto.buscarPorNome(nome);
+			conec.fecharConexao();
+
+			String json = new Gson().toJson(listaProdutos);
+			return this.buildResponse(json);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());
