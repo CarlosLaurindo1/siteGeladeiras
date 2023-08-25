@@ -43,13 +43,13 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 	}
 
 	public List<JsonObject> buscarPorNome(String nome) {
-		String comando = "SELECT produto. *, marcas.nome as marca FROM produtos "
+		String comando = "SELECT produtos. *, marcas.nome as marca FROM produtos "
 				+ "INNER JOIN marcas on produtos.marcas_id = marcas.id ";
 		// O INNER JOIN é responsável pela junção dos dados em que somente a condição do
 		// join é verdadeira, no caso acima estamos juntando duas tabelas diferentes e
 		// só deve trazer os resultados dos produtos que possuem uma marca vinculada
 		if (!nome.equals("")) {
-			comando += "WHERE modelo LIKE '%" + nome + "%'";
+			comando += "WHERE modelo LIKE '%" + nome + "%' ";
 		}
 
 		// O ORDER by vai fazer a ordenação dos resultados, no caso abaixo está
@@ -92,6 +92,20 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 			e.printStackTrace();
 		}
 		return listaProdutos;
+	}
+
+	public boolean deletar(int id) {
+		String comando = "DELETE FROM produtos WHERE id = ?";
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setInt(1, id);
+			p.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 }

@@ -1,9 +1,11 @@
 package br.com.coldigogeladeiras.rest;
 
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
@@ -56,7 +58,7 @@ public class ProdutoRest extends UtilRest {
 	@Consumes("application/*")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response buscarPorNome(@QueryParam("valorBusca") String nome) {
-		
+
 		try {
 			List<JsonObject> listaProdutos = new ArrayList<JsonObject>();
 
@@ -69,6 +71,32 @@ public class ProdutoRest extends UtilRest {
 			String json = new Gson().toJson(listaProdutos);
 			return this.buildResponse(json);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+
+	@DELETE
+	@Path("/excluir/{id}")
+	@Consumes("application/*")
+	public Response excluir(@PathParam("id") int id) {
+		try {
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCProdutoDAO jdbcProduto = new JDBCProdutoDAO(conexao);
+
+			boolean retorno = jdbcProduto.deletar(id);
+
+			String msg = "";
+			if (retorno) {
+				msg = "Produto excluído com sucesso!";
+			} else {
+				msg = "Erro ao excluir produto.";
+			}
+			conec.fecharConexao();
+
+			return this.buildResponse(msg);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());

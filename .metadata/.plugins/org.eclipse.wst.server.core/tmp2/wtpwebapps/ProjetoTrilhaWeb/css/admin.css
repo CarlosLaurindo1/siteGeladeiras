@@ -200,8 +200,8 @@ modalAviso {
 }
 
 .listaRegistros tr, .listaRegistros td, .listaRegistros th {
-	padding: 0 5px;
 	border: 1px solid #B0CaDE;
+	padding: 0 5px;
 }
 
 .listaRegistros tr, .listaRegistros td {

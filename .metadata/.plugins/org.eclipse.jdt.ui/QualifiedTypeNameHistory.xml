@@ -21,4 +21,6 @@
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="jakarta.ws.rs.core.MediaType"/>
     <fullyQualifiedTypeName name="jakarta.ws.rs.Produces"/>
+    <fullyQualifiedTypeName name="jakarta.ws.rs.DELETE"/>
+    <fullyQualifiedTypeName name="jakarta.ws.rs.PathParam"/>
 </qualifiedTypeNameHistroy>
