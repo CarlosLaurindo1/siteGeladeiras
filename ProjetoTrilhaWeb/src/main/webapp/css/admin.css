@@ -226,3 +226,8 @@ modalAviso {
 	height: 20px;
 	cursor: pointer;
 }
+
+/****** modais *****/
+#modalAviso, .modalEditar {
+	display: none;
+}

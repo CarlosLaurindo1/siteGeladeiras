@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="jakarta.ws.rs.core.Response"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="br.com.coldigogeladeiras.jdbc.JDBCProdutoDAO"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="br.com.coldigogeladeiras.bd.Conexao"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="br.com.coldigogeladeiras.modelo.Produto"/>
@@ -23,4 +22,6 @@
     <fullyQualifiedTypeName name="jakarta.ws.rs.Produces"/>
     <fullyQualifiedTypeName name="jakarta.ws.rs.DELETE"/>
     <fullyQualifiedTypeName name="jakarta.ws.rs.PathParam"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 </qualifiedTypeNameHistroy>
