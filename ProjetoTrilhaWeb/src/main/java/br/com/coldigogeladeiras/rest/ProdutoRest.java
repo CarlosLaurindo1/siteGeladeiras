@@ -4,6 +4,7 @@ import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -119,6 +120,32 @@ public class ProdutoRest extends UtilRest {
 			conec.fecharConexao();
 
 			return this.buildResponse(produto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+
+	@PUT
+	@Path("/alterar")
+	@Consumes("Application/*")
+	public Response alterar(String produtoParam) {
+		try {
+			Produto produto = new Gson().fromJson(produtoParam, Produto.class);
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCProdutoDAO jdbcProduto = new JDBCProdutoDAO(conexao);
+
+			boolean retorno = jdbcProduto.alterar(produto);
+			String msg = "";
+			if (retorno) {
+				msg = "Produto alterado com sucesso!";
+			} else {
+				msg = "Erro ao alterar produto.";
+			}
+
+			conec.fecharConexao();
+			return this.buildResponse(msg);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());

@@ -7,6 +7,8 @@ $(document).ready(function() {
 	$("footer").load("/ProjetoTrilhaWeb/pages/admin/general/footer.html");
 
 	COLDIGO.carregaPagina = function(pagename) {
+		if ($(".ui-dialog"))
+			$(".ui-dialog").remove();
 		$("section").empty();
 		$("section").load(pagename + "/", function(response, status, info) {
 			if (status == "error") {
