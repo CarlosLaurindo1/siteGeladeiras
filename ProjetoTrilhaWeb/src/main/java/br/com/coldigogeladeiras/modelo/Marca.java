@@ -24,4 +24,6 @@ public class Marca implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+
 }

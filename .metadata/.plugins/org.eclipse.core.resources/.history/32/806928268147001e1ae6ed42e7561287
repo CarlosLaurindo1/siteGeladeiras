@@ -1,0 +1,29 @@
+COLDIGO.marca = new Object();
+
+$(document).ready(function() {
+	COLDIGO.marca.cadastrar = function() {
+
+		var marca = new Object();
+		marca.nome = document.frmAddMarca.nome.value;
+
+
+		if (marca.nome == "") {
+			COLDIGO.exibirAviso("Preencha todos os campos!")
+		} else {
+			$.ajax({
+				//com este post, faremos o cadastro de um novo produto
+				//converter objetos JavaScript em JSON antes de enviá-los ao servidor é uma maneira eficaz de garantir a interoperabilidade, segurança e eficiência na troca de dados entre o cliente e o servidor em aplicações web.
+				type: "POST",
+				url: COLDIGO.PATH + "marca/inserir",
+				data: JSON.stringify(marca),
+				success: function(msg) {
+					COLDIGO.exibirAviso(msg);
+					$("#addMarca").trigger("reset");
+				},
+				error: function(info) {
+					COLDIGO.exibirAviso("Erro ao cadastrar um novo produto: " + info.status + " . " + info.statusText);
+				}
+			});
+		}
+	};
+});

@@ -20,6 +20,7 @@ $(document).ready(function() {
 
 	COLDIGO.formatarDinheiro = function(valor) {
 		return valor.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+
 	}
 
 	COLDIGO.exibirAviso = function(aviso) {
