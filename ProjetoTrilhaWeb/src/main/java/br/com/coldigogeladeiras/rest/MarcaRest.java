@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import br.com.coldigogeladeiras.bd.Conexao;
 import br.com.coldigogeladeiras.jdbc.JDBCMarcaDAO;
+import br.com.coldigogeladeiras.jdbc.JDBCProdutoDAO;
 import br.com.coldigogeladeiras.modelo.Marca;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -37,6 +39,30 @@ public class MarcaRest extends UtilRest {
 			listaMarcas = jdbcMarca.buscar();
 			conec.fecharConexao();
 			return this.buildResponse(listaMarcas);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+
+	@GET
+	@Path("/buscarMarca")
+	@Consumes("application/*")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorNome(@QueryParam("valorBusca") String nome) {
+
+		try {
+			List<JsonObject> listaMarcas = new ArrayList<JsonObject>();
+
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCProdutoDAO jdbcMarca = new JDBCProdutoDAO(conexao);
+			listaMarcas = jdbcMarca.buscarPorNome(nome);
+			conec.fecharConexao();
+
+			String json = new Gson().toJson(listaMarcas);
+			return this.buildResponse(json);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());

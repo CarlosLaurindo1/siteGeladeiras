@@ -4,7 +4,7 @@ $(document).ready(function() {
 	COLDIGO.marca.cadastrar = function() {
 
 		var marca = new Object();
-		marca.nome = document.frmAddMarca.nome.value;
+		marca.nome = document.frmAddMarca.marca.value;
 
 
 		if (marca.nome == "") {
@@ -39,7 +39,7 @@ $(document).ready(function() {
 			for (var i = 0; i < listaDeMarcas.length; i++) {
 				tabela += "<tr>" +
 					"<td>" + listaDeMarcas[i].id + "</td>" +
-					"<td>" + listaDeMarcas[i].nome + "</td>" +
+					"<td>" + listaDeMarcas[i].marca + "</td>" +
 					"<td>" +
 					"<a onclick=\"COLDIGO.marca.exibirEdicao('" + listaDeMarcas[i].id + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
 					"<a onclick=\"COLDIGO.marca.excluir('" + listaDeMarcas[i].id + "')\")><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
@@ -47,22 +47,22 @@ $(document).ready(function() {
 					"</tr>";
 			}
 		} else if (listaDeMarcas == "") {
-			tabela += "<tr><td colspan='6' > Nenhum registro encontrado</td ></tr > ";
+			tabela += "<tr><td colspan='2' > Nenhum registro encontrado</td ></tr > ";
 		}
 		tabela += "</table>";
 
 		return tabela;
 	};
 
-	COLDIGO.marca.buscar = function() {
+	COLDIGO.marca.buscarPorNome = function() {
 		var valorBusca = $("#campoBuscaMarca").val();
 
 		$.ajax({
 			type: "GET",
-			url: COLDIGO.PATH + "marca/buscar",
+			url: COLDIGO.PATH + "marca/buscarPorNome",
 			data: "valorBusca=" + valorBusca,
 			success: function(dados) {
-				dados = JSON.parse(dados);
+				dados = JSON.parse(dadosMarcas);
 				$("#listaMarcas").html(COLDIGO.marca.exibir(dados));
 			},
 			error: function(info) {
@@ -70,7 +70,7 @@ $(document).ready(function() {
 			}
 		});
 	};
-	COLDIGO.marca.buscar();
+	COLDIGO.marca.buscarPorNome();
 
 	COLDIGO.marca.excluir = function(id) {
 		$.ajax({
