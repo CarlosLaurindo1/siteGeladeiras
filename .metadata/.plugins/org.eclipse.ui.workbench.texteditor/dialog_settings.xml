@@ -6,35 +6,35 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="buscar"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
-			<item value="buscar"/>
-			<item value="buscarPorNome"/>
-			<item value="dados"/>
-			<item value="produto"/>
-			<item value="COLDIGO.marca.buscar"/>
-			<item value="parse"/>
-			<item value="frm"/>
-			<item value="marca/buscar"/>
-			<item value="colspan"/>
-			<item value="pars"/>
+			<item value="tit"/>
+			<item value="sel"/>
+			<item value="selMarcaEdicao"/>
+			<item value="frmEditaMarca"/>
+			<item value="document.frmEditaMarca.nome"/>
+			<item value="selCat"/>
+			<item value="edicao"/>
+			<item value="edicapo"/>
+			<item value="selCategoriaEdicao"/>
 			<item value="&lt;script src=&quot;../../js/marca.js&quot;&gt;"/>
-			<item value="p."/>
 			<item value="exibir"/>
+			<item value="edita"/>
+			<item value="buscar"/>
 			<item value="exibirEdicao"/>
-			<item value="marca"/>
+			<item value="buscarPorNome"/>
 		</list>
 		<list key="replacehistory">
-			<item value="dadosMarcas"/>
 			<item value=""/>
+			<item value="dadosMarcas"/>
 			<item value="hover"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="346"/>
-		<item key="DIALOG_Y_ORIGIN" value="189"/>
+		<item key="DIALOG_X_ORIGIN" value="968"/>
+		<item key="DIALOG_Y_ORIGIN" value="264"/>
 		<item key="DIALOG_WIDTH" value="322"/>
-		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_HEIGHT" value="414"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>

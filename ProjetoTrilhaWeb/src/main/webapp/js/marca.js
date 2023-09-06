@@ -44,9 +44,8 @@ $(document).ready(function() {
 					"</td>" +
 					"</tr>";
 			}
-		} else if (tabelaMarca == "") {
-			
-			tabelaMarca += "<tr><td colspan='2' > Nenhum registro encontrado</td ></tr > ";
+		} else if (listaMarcas == "") {
+			tabelaMarca += "<tr><td colspan='3' > Nenhum registro encontrado</td ></tr > ";
 		}
 		tabelaMarca += "</table>";
 
@@ -96,17 +95,6 @@ $(document).ready(function() {
 			success: function(marca) {
 				document.frmEditaMarca.idMarca.value = marca.id;
 				document.frmEditaMarca.nome.value = marca.nome;
-
-				var selCategoria = document.getElementById('selCategoriaEdicao');
-				for (var i = 0; i < selCategoria.length; i++) {
-					if (selCategoria.options[i].value == marca.nome) {
-						selCategoria.options[i].setAttribute("selected", "selected");
-					} else {
-						selCategoria.options[i].removeAttribute("selected");
-					}
-				}
-
-				//COLDIGO.produto.carregarMarcas(produto.marcaId);
 
 				var modalEditaMarca = {
 					title: "Editar Marca",
