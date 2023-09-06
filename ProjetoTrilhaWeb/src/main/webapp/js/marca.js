@@ -11,8 +11,6 @@ $(document).ready(function() {
 			COLDIGO.exibirAviso("Preencha todos os campos!")
 		} else {
 			$.ajax({
-				//com este post, faremos o cadastro de um novo 
-				//converter objetos JavaScript em JSON antes de enviá-los ao servidor é uma maneira eficaz de garantir a interoperabilidade, segurança e eficiência na troca de dados entre o cliente e o servidor em aplicações web.
 				type: "POST",
 				url: COLDIGO.PATH + "marca/inserir",
 				data: JSON.stringify(marca),
@@ -27,31 +25,32 @@ $(document).ready(function() {
 		}
 	};
 
-	COLDIGO.marca.exibir = function(listaDeMarcas) {
-		var tabela = "<table>" +
+	COLDIGO.marca.exibir = function(listaMarcas) {
+		var tabelaMarca = "<table>" +
 			"<tr>" +
 			"<th>ID</th>" +
 			"<th>Marca</th>" +
 			"<th class='acoes'>Ações</th>" +
 			"</tr>";
 
-		if (listaDeMarcas != undefined && listaDeMarcas.length > 0) {
-			for (var i = 0; i < listaDeMarcas.length; i++) {
-				tabela += "<tr>" +
-					"<td>" + listaDeMarcas[i].id + "</td>" +
-					"<td>" + listaDeMarcas[i].marca + "</td>" +
+		if (listaMarcas != undefined && listaMarcas.length > 0) {
+			for (var i = 0; i < listaMarcas.length; i++) {
+				tabelaMarca += "<tr>" +
+					"<td>" + listaMarcas[i].id + "</td>" +
+					"<td>" + listaMarcas[i].nome + "</td>" +
 					"<td>" +
-					"<a onclick=\"COLDIGO.marca.exibirEdicao('" + listaDeMarcas[i].id + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
-					"<a onclick=\"COLDIGO.marca.excluir('" + listaDeMarcas[i].id + "')\")><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
+					"<a onclick=\"COLDIGO.marca.exibirEdicao('" + listaMarcas[i].id + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
+					"<a onclick=\"COLDIGO.marca.excluir('" + listaMarcas[i].id + "')\")><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
 					"</td>" +
 					"</tr>";
 			}
-		} else if (listaDeMarcas == "") {
-			tabela += "<tr><td colspan='2' > Nenhum registro encontrado</td ></tr > ";
+		} else if (tabelaMarca == "") {
+			
+			tabelaMarca += "<tr><td colspan='2' > Nenhum registro encontrado</td ></tr > ";
 		}
-		tabela += "</table>";
+		tabelaMarca += "</table>";
 
-		return tabela;
+		return tabelaMarca;
 	};
 
 	COLDIGO.marca.buscarPorNome = function() {
@@ -61,9 +60,10 @@ $(document).ready(function() {
 			type: "GET",
 			url: COLDIGO.PATH + "marca/buscarPorNome",
 			data: "valorBusca=" + valorBusca,
-			success: function(dados) {
-				dados = JSON.parse(dadosMarcas);
-				$("#listaMarcas").html(COLDIGO.marca.exibir(dados));
+			success: function(dadosMarca) {
+				//console.log(dadosMarca);
+				dadosMarca = JSON.parse(dadosMarca);
+				$("#listaMarcas").html(COLDIGO.marca.exibir(dadosMarca));
 			},
 			error: function(info) {
 				COLDIGO.exibirAviso("Erro ao consultar os contatos: " + info.status + " - " + info.statusText);
@@ -78,14 +78,14 @@ $(document).ready(function() {
 			url: COLDIGO.PATH + "marca/excluir/" + id,
 			success: function(msg) {
 				COLDIGO.exibirAviso(msg);
-				COLDIGO.marca.buscar();
+				COLDIGO.marca.buscarPorNome();
 			},
 			error: function(info) {
 				COLDIGO.exibirAviso("Erro ao excluir : " + info.status + " - " + info.statusText);
 			}
 		});
 	};
-	COLDIGO.marca.buscar();
+	COLDIGO.marca.buscarPorNome();
 
 
 	COLDIGO.marca.exibirEdicao = function(id) {
@@ -93,7 +93,7 @@ $(document).ready(function() {
 			type: "GET",
 			url: COLDIGO.PATH + "marca/buscarPorId",
 			data: "id=" + id,
-			success: function() {
+			success: function(marca) {
 				document.frmEditaMarca.idMarca.value = marca.id;
 				document.frmEditaMarca.nome.value = marca.nome;
 
@@ -106,7 +106,7 @@ $(document).ready(function() {
 					}
 				}
 
-				COLDIGO.marca.carregarMarcas(id);
+				//COLDIGO.produto.carregarMarcas(produto.marcaId);
 
 				var modalEditaMarca = {
 					title: "Editar Marca",
@@ -145,7 +145,7 @@ $(document).ready(function() {
 			data: JSON.stringify(marca),
 			success: function(msg) {
 				COLDIGO.exibirAviso(msg);
-				COLDIGO.marca.buscar();
+				COLDIGO.marca.buscarPorNome();
 				$("#modalEditaMarca").dialog("close");
 			},
 			error: function(info) {

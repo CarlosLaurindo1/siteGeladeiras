@@ -80,15 +80,16 @@ public class JDBCMarcaDAO implements MarcaDAO {
 
 		try {
 			Statement stmt = conexao.createStatement();
+			System.out.println(comando);
 			ResultSet rs = stmt.executeQuery(comando);
 
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				String nome1 = rs.getString("nome");
+				nome = rs.getString("nome");
 
 				marca = new JsonObject();
 				marca.addProperty("id", id);
-				marca.addProperty("nome", nome1);
+				marca.addProperty("nome", nome);
 
 				listaMarcas.add(marca);
 			}
