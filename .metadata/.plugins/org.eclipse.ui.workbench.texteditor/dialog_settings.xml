@@ -8,6 +8,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="};"/>
 			<item value="tit"/>
 			<item value="sel"/>
 			<item value="selMarcaEdicao"/>
@@ -22,7 +23,6 @@
 			<item value="edita"/>
 			<item value="buscar"/>
 			<item value="exibirEdicao"/>
-			<item value="buscarPorNome"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

@@ -131,7 +131,29 @@ public class JDBCMarcaDAO implements MarcaDAO {
 			e.printStackTrace();
 		}
 		return marca;
+	}
+	
+	public boolean verificarProduto(int id) {
+		String comando = "SELECT marcas.id, marcas.nome, produtos.id, produtos.marcas_id\r\n"
+				+ "FROM marcas, produtos\r\n"
+				+ "WHERE marcas.id = produtos.marcas_id";
+		Marca marca = new Marca();
+		try {
+			PreparedStatement m = this.conexao.prepareStatement(comando);
+			m.setInt(1, id);
+			ResultSet rs = m.executeQuery();
+			while (rs.next()) {
+				String nome = rs.getString("nome");
 
+				marca.setId(id);
+				marca.setNome(nome);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+		
 	}
 
 	public boolean alterar(Marca marca) {

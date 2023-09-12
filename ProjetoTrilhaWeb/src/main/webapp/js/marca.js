@@ -70,11 +70,26 @@ $(document).ready(function() {
 		});
 	};
 	COLDIGO.marca.buscarPorNome();
+	
+	COLDIGO.marca.varificarProduto = function(id){
+		$.ajax({
+			type: "GET",
+			url: COLDIGO.PATH + "marca/verificarProduto" + id,
+			
+			success: function(temProdutos){
+				
+			},
+			error: function(info){
+				
+			}
+		})
+	}
 
 	COLDIGO.marca.excluir = function(id) {
 		$.ajax({
 			type: "DELETE",
 			url: COLDIGO.PATH + "marca/excluir/" + id,
+			
 			success: function(msg) {
 				COLDIGO.exibirAviso(msg);
 				COLDIGO.marca.buscarPorNome();

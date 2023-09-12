@@ -68,6 +68,30 @@ public class MarcaRest extends UtilRest {
 		}
 	}
 
+	@GET
+	@Path("/verificarProduto")
+	@Consumes("application/*")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorNome(@QueryParam("valorBusca") int id) {
+		System.out.println("id");
+		try {
+			boolean verificarProduto = false;
+
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCMarcaDAO jdbcMarca = new JDBCMarcaDAO(conexao);
+			verificarProduto = jdbcMarca.verificarProduto(id);
+			conec.fecharConexao();
+
+			String json = new Gson().toJson(verificarProduto);
+			return this.buildResponse(json);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+
 	@POST
 	@Path("/inserir")
 	@Consumes("application/*")
