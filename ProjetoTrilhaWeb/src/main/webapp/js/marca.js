@@ -31,6 +31,7 @@ $(document).ready(function() {
 			"<th>ID</th>" +
 			"<th>Marca</th>" +
 			"<th class='acoes'>Ações</th>" +
+			"<th class='acoes'>Inativar</th>" +
 			"</tr>";
 
 		if (listaMarcas != undefined && listaMarcas.length > 0) {
@@ -40,12 +41,23 @@ $(document).ready(function() {
 					"<td>" + listaMarcas[i].nome + "</td>" +
 					"<td>" +
 					"<a onclick=\"COLDIGO.marca.exibirEdicao('" + listaMarcas[i].id + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
-					"<a onclick=\"COLDIGO.marca.excluir('" + listaMarcas[i].id + "')\")><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
+					"<a onclick=\"COLDIGO.marca.excluir('" + listaMarcas[i].id + "')\"><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
+					"</td>" +
+					"<td>" +
+					"<a>" +
+					"<div class='onoffswitch'>" +
+					"<input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch" + listaMarcas[i].id + "' tabindex='0' checked>" +
+					"<label class='onoffswitch-label' for='myonoffswitch" + listaMarcas[i].id + "'>" +
+					"<span class='onoffswitch-inner' onclick=\"COLDIGO.marca.inativar('" + listaMarcas[i].id + "')\"></span>" +
+					"<span class='onoffswitch-switch' onclick=\"COLDIGO.marca.inativar('" + listaMarcas[i].id + "')\"></span>" +
+					"</label>" +
+					"</div>" +
+					"</a>" +
 					"</td>" +
 					"</tr>";
 			}
 		} else if (listaMarcas == "") {
-			tabelaMarca += "<tr><td colspan='3' > Nenhum registro encontrado</td ></tr > ";
+			tabelaMarca += "<tr><td colspan='4' > Nenhum registro encontrado</td ></tr > ";
 		}
 		tabelaMarca += "</table>";
 
@@ -70,26 +82,12 @@ $(document).ready(function() {
 		});
 	};
 	COLDIGO.marca.buscarPorNome();
-	
-	COLDIGO.marca.varificarProduto = function(id){
-		$.ajax({
-			type: "GET",
-			url: COLDIGO.PATH + "marca/verificarProduto" + id,
-			
-			success: function(temProdutos){
-				
-			},
-			error: function(info){
-				
-			}
-		})
-	}
 
 	COLDIGO.marca.excluir = function(id) {
 		$.ajax({
 			type: "DELETE",
 			url: COLDIGO.PATH + "marca/excluir/" + id,
-			
+
 			success: function(msg) {
 				COLDIGO.exibirAviso(msg);
 				COLDIGO.marca.buscarPorNome();
@@ -157,4 +155,27 @@ $(document).ready(function() {
 		});
 
 	};
+
+	COLDIGO.marca.inativar = function() {
+
+		var marca = new Object();
+		marca.id = document.frmEditaMarca.idMarca.value;
+		marca.nome = document.frmEditaMarca.nome.value;
+		marca.status = document.frmEditaMarca.status.value;
+
+		$.ajax({
+			type: "PUT",
+			url: COLDIGO.PATH + "marca/inativar",
+			data: JSON.stringify(marca),
+			success: function(msg) {
+				COLDIGO.exibirAviso(msg);
+				COLDIGO.marca.buscarPorNome();
+			},
+			error: function(info) {
+				COLDIGO.exibirAviso("Erro ao inativar marca: " + info.status + " - " + info.statusText);
+			}
+		});
+
+	};
+	COLDIGO.marca.buscarPorNome();
 });

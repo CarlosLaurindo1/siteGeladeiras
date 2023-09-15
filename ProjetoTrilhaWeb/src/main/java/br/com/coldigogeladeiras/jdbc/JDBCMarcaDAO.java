@@ -132,11 +132,10 @@ public class JDBCMarcaDAO implements MarcaDAO {
 		}
 		return marca;
 	}
-	
+
 	public boolean verificarProduto(int id) {
 		String comando = "SELECT marcas.id, marcas.nome, produtos.id, produtos.marcas_id\r\n"
-				+ "FROM marcas, produtos\r\n"
-				+ "WHERE marcas.id = produtos.marcas_id";
+				+ "FROM marcas, produtos\r\n" + "WHERE marcas.id = produtos.marcas_id";
 		Marca marca = new Marca();
 		try {
 			PreparedStatement m = this.conexao.prepareStatement(comando);
@@ -153,7 +152,7 @@ public class JDBCMarcaDAO implements MarcaDAO {
 			e.printStackTrace();
 		}
 		return false;
-		
+
 	}
 
 	public boolean alterar(Marca marca) {
@@ -169,6 +168,33 @@ public class JDBCMarcaDAO implements MarcaDAO {
 			return false;
 		}
 		return true;
+	}
+
+	public boolean inativar(Marca marca2) {
+		String comando = "UPDATE marcas " + "SET status=? " + "WHERE id=? ";
+		PreparedStatement m;
+		Marca marca = new Marca();
+		try {
+			m = this.conexao.prepareStatement(comando);
+			if (marca.getStatus(1) == 1) {
+				m.setInt(1, marca.getStatus(0));
+				m.setInt(2, marca.getId());
+				m.execute();
+			} else {
+				m.setInt(1, marca.getStatus(1));
+				m.setInt(2, marca.getId());
+				m.execute();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public boolean inativar(int status) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
