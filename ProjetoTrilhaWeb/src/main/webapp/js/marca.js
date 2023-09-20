@@ -46,10 +46,10 @@ $(document).ready(function() {
 					"<td>" +
 					"<a>" +
 					"<div class='onoffswitch'>" +
-					"<input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch" + listaMarcas[i].id + "' tabindex='0' checked>" +
+					"<input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch" + listaMarcas[i].id + "' tabindex='0' data-status='" + listaMarcas[i].status + "' checked>" +
 					"<label class='onoffswitch-label' for='myonoffswitch" + listaMarcas[i].id + "'>" +
-					"<span class='onoffswitch-inner' onclick=\"COLDIGO.marca.inativar('" + listaMarcas[i].id + "')\"></span>" +
-					"<span class='onoffswitch-switch' onclick=\"COLDIGO.marca.inativar('" + listaMarcas[i].id + "')\"></span>" +
+					"<span class='onoffswitch-inner' onclick=\"COLDIGO.marca.inverterStatus('" + listaMarcas[i].id + "')\"></span>" +
+					"<span class='onoffswitch-switch' onclick=\"COLDIGO.marca.inverterStatus('" + listaMarcas[i].id + "')\"></span>" +
 					"</label>" +
 					"</div>" +
 					"</a>" +
@@ -156,26 +156,40 @@ $(document).ready(function() {
 
 	};
 
-	COLDIGO.marca.inativar = function() {
 
+	COLDIGO.marca.inverterStatus = function(id) {
 		var marca = new Object();
-		marca.id = document.frmEditaMarca.idMarca.value;
-		marca.nome = document.frmEditaMarca.nome.value;
-		marca.status = document.frmEditaMarca.status.value;
+		marca.id = id;
 
 		$.ajax({
 			type: "PUT",
-			url: COLDIGO.PATH + "marca/inativar",
+			url: COLDIGO.PATH + "marca/inverterStatus",
 			data: JSON.stringify(marca),
 			success: function(msg) {
 				COLDIGO.exibirAviso(msg);
 				COLDIGO.marca.buscarPorNome();
 			},
 			error: function(info) {
-				COLDIGO.exibirAviso("Erro ao inativar marca: " + info.status + " - " + info.statusText);
+				COLDIGO.exibirAviso("Erro ao inverter status da marca: " + info.status + " - " + info.statusText);
 			}
 		});
-
 	};
+
+	$(document).ready(function() {
+		// Percorre todos os switches
+		$('.onoffswitch-checkbox').each(function() {
+			// Verifica o status da marca associado ao switch
+			var status = $(this).data('status');
+
+			// Define o estado do switch com base no status
+			if (status === 1) {
+				$(this).prop('checked', true);
+			} else {
+				$(this).prop('checked', false);
+			}
+		});
+	});
+
+
 	COLDIGO.marca.buscarPorNome();
 });

@@ -26,7 +26,7 @@ public class Marca implements Serializable {
 		this.nome = nome;
 	}
 
-	public int getStatus(int status) {
+	public int getStatus() {
 		return status;
 	}
 

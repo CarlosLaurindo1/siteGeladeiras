@@ -18,6 +18,7 @@ public interface MarcaDAO {
 	public Marca buscarPorId(int id);
 
 	public boolean alterar(Marca marca);
-	
-	public boolean inativar(int status);
+
+	public boolean inverterStatus(Marca marca);
+
 }

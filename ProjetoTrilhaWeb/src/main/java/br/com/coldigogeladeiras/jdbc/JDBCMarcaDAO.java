@@ -170,31 +170,24 @@ public class JDBCMarcaDAO implements MarcaDAO {
 		return true;
 	}
 
-	public boolean inativar(Marca marca2) {
-		String comando = "UPDATE marcas " + "SET status=? " + "WHERE id=? ";
+	public boolean inverterStatus(Marca marca) {
+		String comando = "UPDATE marcas SET status = ? WHERE id = ?";
 		PreparedStatement m;
-		Marca marca = new Marca();
+
 		try {
 			m = this.conexao.prepareStatement(comando);
-			if (marca.getStatus(1) == 1) {
-				m.setInt(1, marca.getStatus(0));
-				m.setInt(2, marca.getId());
-				m.execute();
+			if (marca.getStatus() == 1) {
+				m.setInt(1, 0); // Alterna para inativo
 			} else {
-				m.setInt(1, marca.getStatus(1));
-				m.setInt(2, marca.getId());
-				m.execute();
+				m.setInt(1, 1); // Alterna para ativo
 			}
+			m.setInt(2, marca.getId());
+			m.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
 		return true;
-	}
-
-	public boolean inativar(int status) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

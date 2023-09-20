@@ -196,7 +196,7 @@ public class MarcaRest extends UtilRest {
 	}
 
 	@PUT
-	@Path("/inativar")
+	@Path("/inverterStatus")
 	@Consumes("Application/*")
 	public Response inativar(String marcaParam) {
 		try {
@@ -205,7 +205,7 @@ public class MarcaRest extends UtilRest {
 			Connection conexao = conec.abrirConexao();
 			JDBCMarcaDAO jdbcMarca = new JDBCMarcaDAO(conexao);
 
-			boolean retorno = jdbcMarca.inativar(marca);
+			boolean retorno = jdbcMarca.inverterStatus(marca);
 			String msg = "";
 			if (retorno) {
 				msg = "Marca inativada com sucesso!";
@@ -220,4 +220,5 @@ public class MarcaRest extends UtilRest {
 			return this.buildErrorResponse(e.getMessage());
 		}
 	}
+
 }
